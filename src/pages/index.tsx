@@ -1,8 +1,8 @@
+import { NextPage } from "next";
 import Head from "next/head";
-import { FC } from "react";
 import { Navigation } from "../components/navigation";
 
-const Home: FC = () => {
+const Home: NextPage = () => {
   return (
     <>
       <Head>

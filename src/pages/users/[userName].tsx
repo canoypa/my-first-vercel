@@ -1,11 +1,11 @@
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import { FC } from "react";
 import { Navigation } from "../../components/navigation";
 
 type Props = {
   userName: string;
 };
-const Home: FC<Props> = ({ userName }) => {
+const Home: NextPage<Props> = ({ userName }) => {
   return (
     <>
       <Head>
@@ -24,7 +24,12 @@ const Home: FC<Props> = ({ userName }) => {
 };
 export default Home;
 
-export const getStaticProps = ({ params }) => {
+type Query = {
+  userName: string;
+};
+export const getStaticProps: GetStaticProps<Props, Query> = async ({
+  params,
+}) => {
   const userName = params.userName;
 
   return {
@@ -33,9 +38,9 @@ export const getStaticProps = ({ params }) => {
   };
 };
 
-export const getStaticPaths = () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: true,
+    fallback: "blocking",
   };
 };
