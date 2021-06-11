@@ -1,7 +1,8 @@
 import Head from "next/head";
-import Link from "next/link";
+import { FC } from "react";
+import { Navigation } from "../components/navigation";
 
-export default function Home() {
+const Home: FC = () => {
   return (
     <>
       <Head>
@@ -13,15 +14,9 @@ export default function Home() {
       <main>
         <h1>Home</h1>
 
-        <ul>
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/user?name=Sasa">User</Link>
-          </li>
-        </ul>
+        <Navigation />
       </main>
     </>
   );
-}
+};
+export default Home;
