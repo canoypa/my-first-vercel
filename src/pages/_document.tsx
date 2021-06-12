@@ -1,8 +1,8 @@
 import { ServerStyleSheets } from "@material-ui/styles";
-import Document from "next/document";
+import Document, { DocumentContext } from "next/document";
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext) {
     const originalRenderPage = ctx.renderPage;
 
     const sheets = new ServerStyleSheets();
