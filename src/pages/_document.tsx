@@ -13,11 +13,15 @@ export default class MyDocument extends Document {
       });
 
     const initialProps = await Document.getInitialProps(ctx);
-    const styles = sheets.getStyleElement();
 
     return {
       ...initialProps,
-      styles,
+      styles: (
+        <>
+          {initialProps.styles}
+          {sheets.getStyleElement()}
+        </>
+      ),
     };
   }
 
