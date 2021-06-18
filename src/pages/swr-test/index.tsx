@@ -1,8 +1,9 @@
 import { GetStaticProps, NextPage } from "next";
 import useSWR from "swr";
 
-const fetcher = (key: string) => {
-  return fetch(`http://localhost:3000${key}`).then((v) => v.json());
+const fetcher = async (key: string) => {
+  const v = await fetch(`http://localhost:3000${key}`);
+  return await v.json();
 };
 
 type Props = {
